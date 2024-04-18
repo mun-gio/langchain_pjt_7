@@ -25,16 +25,14 @@ class Rag:
 
         return retriever
     
-    def generate(self,context,question):
-        template = """Answer the question based only on the following context:
+    def generate(self,context,question,model):
+        template = """너는 영양소 정보에 대해서 잘 아는 한국인 약사야. 이제부터 모든 대답은 한국말로 해줘. 물어보는 질문에 대해서 아래 내용을 토대로 입력된 내용에 대해 답변해줘. 아래 context에 원하는 답변이 없으면 모르겠다고 해줘.:
 
         {context}
 
         Question: {question}
         """
         prompt = ChatPromptTemplate.from_template(template)
-        model = ChatGoogleGenerativeAI(model='gemini-pro')
-
 
         def format_docs(docs):
             return "\n\n".join([d.page_content for d in docs])

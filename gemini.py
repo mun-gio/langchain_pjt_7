@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 
-class gemini():
+class Gemini():
     def __init__(self):
         pass
         
