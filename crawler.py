@@ -6,7 +6,6 @@ from langchain_community.document_loaders import WebBaseLoader
 class Crawler:
     def __init__(self) -> None:
         pass
-
     def crwaler(self, vitamin):
         loader = WebBaseLoader(
             web_paths=(f"https://examine.com/supplements/{vitamin}/",),
@@ -19,8 +18,9 @@ class Crawler:
         )
 
         docs = loader.load()
-        print(f"문서의 수: {len(docs)}")
-        print(docs)
-
-crawler = Crawler()
-crawler.crwaler()
+        return docs
+        # print(f"문서의 수: {len(docs)}")
+        # print(docs)
+        
+# crawler = Crawler()
+# crawler.crwaler() 
